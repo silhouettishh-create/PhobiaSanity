@@ -10,6 +10,7 @@ public class SanityMod implements ModInitializer {
     @Override
     public void onInitialize() {
         PhobiaAssigner.register();
+        SanityCommand.register();
         ServerTickEvents.END_SERVER_TICK.register(SanityTickHandler::onEndTick);
     }
 }
