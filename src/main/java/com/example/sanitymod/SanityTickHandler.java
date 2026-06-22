@@ -37,7 +37,7 @@ public class SanityTickHandler {
     }
 
     private static void tickNyctophobia(ServerPlayer player) {
-        ServerLevel level = player.serverLevel();
+        ServerLevel level = (ServerLevel) player.level();
         BlockPos pos = player.blockPosition();
         int light = level.getMaxLocalRawBrightness(pos);
         if (light <= 3) {
@@ -46,7 +46,7 @@ public class SanityTickHandler {
     }
 
     private static void tickThalassophobia(ServerPlayer player) {
-        ServerLevel level = player.serverLevel();
+        ServerLevel level = (ServerLevel) player.level();
         boolean inBoat = player.getVehicle() instanceof Boat;
         boolean swimming = player.isInWater();
         if (!inBoat && !swimming) return;
@@ -75,8 +75,8 @@ public class SanityTickHandler {
     private static void tickChromophobia(ServerPlayer player) {
         SanityManager.addSanity(player, -0.25f);
 
-        ServerLevel level = player.serverLevel();
-        long t = level.getDayTime() % 24000;
+        ServerLevel level = (ServerLevel) player.level();
+        long t = level.getLevelData().getDayTime() % 24000;
         boolean isNight = t >= 13000 && t < 23000;
 
         if (isNight && !player.isSleeping()) {
