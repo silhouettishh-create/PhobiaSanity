@@ -18,10 +18,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build
-        run: gradle build
+        run: gradle jar
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: sanity-mod
-          path: build/libs/*.jar
+          path: build/libs/sanity-mod-1.0.0.jar
