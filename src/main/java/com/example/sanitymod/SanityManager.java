@@ -38,6 +38,7 @@ public class SanityManager {
     private static ServerBossEvent getOrCreateBar(ServerPlayer player) {
         return BARS.computeIfAbsent(player.getUUID(), id -> {
             ServerBossEvent bar = new ServerBossEvent(
+                    id,
                     Component.literal("Sanity"),
                     BossEvent.BossBarColor.PURPLE,
                     BossEvent.BossBarOverlay.NOTCHED_10
